@@ -1,4 +1,4 @@
-public class Main {
+public class KnapsackGPT {
     public static int knapsack(int[] weights, int[] values, int capacity) {
         int n = weights.length;
         int[][] dp = new int[n + 1][capacity + 1];
