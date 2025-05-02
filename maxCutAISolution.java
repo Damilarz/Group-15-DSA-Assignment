@@ -5,10 +5,11 @@ public class maxCutAISolution {
         // Example graph represented as an adjacency list
         // Each index represents a node, and the array contains its neighbors
         int[][] graph = {
-                {1, 2},    // Node 0 connected to Nodes 1 and 2
-                {0, 2, 3}, // Node 1 connected to Nodes 0, 2, and 3
-                {0, 1, 3}, // Node 2 connected to Nodes 0, 1, and 3
-                {1, 2}     // Node 3 connected to Nodes 1 and 2
+                {1, 2},       // Vertex 0 is connected to 1 and 2
+                {0, 3},       // Vertex 1 is connected to 0 and 3
+                {0, 3, 4},    // Vertex 2 is connected to 0, 3, and 4
+                {1, 2},       // Vertex 3 is connected to 1 and 2
+                {2}           // Vertex 4 is connected to 2
         };
 
         // Call the greedyMaxCut function to compute the partition
@@ -17,6 +18,8 @@ public class maxCutAISolution {
         // Output the two sets representing the cut
         System.out.println("Set A: " + maxCut[0]);
         System.out.println("Set B: " + maxCut[1]);
+
+        System.out.println(CutValue(graph, maxCut[0], maxCut[1]));
     }
 
     public static Set<Integer>[] greedyMaxCut(int[][] graph) {
@@ -66,5 +69,17 @@ public class maxCutAISolution {
 
         // Step 4: Return the two sets as the final partition
         return new Set[]{setA, setB};
+    }
+
+    public static int CutValue (int[][] graph, Set<Integer> setA, Set<Integer> setB) {
+        int Cuts = 0;
+        for (int v : setA) {
+            for (int nei : graph[v]) {
+                if (setB.contains(nei)) {
+                    Cuts++;
+                }
+            }
+        }
+        return Cuts;
     }
 }

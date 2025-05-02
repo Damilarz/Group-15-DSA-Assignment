@@ -1,65 +1,20 @@
+import java.io.BufferedReader;
 import java.util.*;
+import java.io.File;
+import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class maxCutNaiveSolution {
     public static void main(String[] args) {
-        int [][] nodes = { // Define a graph
-                /*{1, 3, 5},
-                {0, 2, 4},
-                {1, 4, 5},
-                {0},
-                {1, 2},
-                {0, 2}*/
-
-                {1, 2, 3},       // 0
-                {0, 4, 5},       // 1
-                {0, 6},          // 2
-                {0, 7, 8},       // 3
-                {1, 9, 10},      // 4
-                {1, 11},         // 5
-                {2, 12, 13},     // 6
-                {3, 14},         // 7
-                {3, 15, 16},     // 8
-                {4, 17},         // 9
-                {4, 18, 19},     // 10
-                {5, 20},         // 11
-                {6, 21, 22},     // 12
-                {6, 23},         // 13
-                {7, 24, 25},     // 14
-                {8, 26},         // 15
-                {8, 27, 28},     // 16
-                {9, 29},         // 17
-                {10, 30},        // 18
-                {10, 31},        // 19
-                {11, 32, 33},    // 20
-                {12, 34},        // 21
-                {12, 35},        // 22
-                {13, 36},        // 23
-                {14, 37},        // 24
-                {14, 38},        // 25
-                {15, 39},        // 26
-                {16, 40},        // 27
-                {16, 41},        // 28
-                {17, 42},        // 29
-                {18, 43},        // 30
-                {19, 44},        // 31
-                {20, 45},        // 32
-                {20, 46},        // 33
-                {21, 47},        // 34
-                {22, 48},        // 35
-                {23, 49},        // 36
-                {24},            // 37
-                {25},            // 38
-                {26},            // 39
-                {27},            // 40
-                {28},            // 41
-                {29},            // 42
-                {30},            // 43
-                {31},            // 44
-                {32},            // 45
-                {33},            // 46
-                {34},            // 47
-                {35},            // 48
-                {36}             // 49
+        int [][] nodes = {
+                {1, 2},       // Vertex 0 is connected to 1 and 2
+                {0, 3},       // Vertex 1 is connected to 0 and 3
+                {0, 3, 4},    // Vertex 2 is connected to 0, 3, and 4
+                {1, 2},       // Vertex 3 is connected to 1 and 2
+                {2}           // Vertex 4 is connected to 2
         };
         // Declare variables for algorithm result
         Integer returnedCuts = 0;
@@ -126,5 +81,6 @@ public class maxCutNaiveSolution {
         return new Set[]{maxSetA, maxSetB};
 
     }
+
 
 }
